@@ -16,29 +16,31 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro
 
 <BaseLayout title={`${title} — Dublin by Design`} description={description} image={heroImage}>
   <article class="blog-post">
-    <div class="container">
-      <header class="post-header">
+    <header class="post-hero-header">
+      <div class="container">
         <a href="/blog/" class="post-back-link">
           <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
-          Back to blog
+          All posts
         </a>
-        <p class="post-meta">
-          <span class="material-symbols-outlined post-meta-icon" aria-hidden="true">calendar_today</span>
+        <div class="post-header-meta">
+          <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 18px;">calendar_today</span>
           <FormattedDate date={pubDate} />
           {updatedDate && (
             <span> · Updated <FormattedDate date={updatedDate} /></span>
           )}
-        </p>
+        </div>
         <h1>{title}</h1>
         {tags.length > 0 && (
           <ul class="tag-list" aria-label="Tags">
             {tags.map((tag) => (
-              <li class="tag">{tag}</li>
+              <li class="tag tag--on-dark">{tag}</li>
             ))}
           </ul>
         )}
-      </header>
+      </div>
+    </header>
 
+    <div class="container">
       {heroImage && (
         <img
           class="post-hero-image"

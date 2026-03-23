@@ -6,21 +6,18 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="About — Dublin by Design"
   description="Dublin by Design is a blog about architecture, urban design, and public spaces in Dublin, Ireland."
 >
-  <section class="hero">
+  <section class="hero hero--tertiary">
     <div class="container">
-      <span class="hero-label">
-        <span class="material-symbols-outlined" aria-hidden="true">info</span>
-        About
-      </span>
+      <p class="hero-eyebrow">The Story</p>
       <h1>About this blog</h1>
-      <p>Architecture, urban design, and public spaces in Dublin.</p>
+      <p class="hero-subtitle">Architecture, urban design, and the spaces in between.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="about-card">
-        <div class="prose">
+      <div class="about-layout">
+        <div class="about-main prose">
           <p>
             <strong>Dublin by Design</strong> is a blog about the architecture, urban design,
             and public spaces that shape Dublin. It's a place to think out loud about the
@@ -33,19 +30,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             details of street design. The goal is to look carefully at the built environment
             and ask: what's working, what isn't, and what could we do differently?
           </p>
-
-          <div class="about-divider"></div>
-
-          <h2>
-            <span class="material-symbols-outlined section-icon" aria-hidden="true">mail</span>
-            Get in Touch
-          </h2>
-
-          <p>
-            Have a project you'd like to discuss, or a part of Dublin you think deserves
-            closer attention? Reach out — I'd love to hear from you.
-          </p>
         </div>
+
+        <aside class="about-sidebar">
+          <div class="about-sidebar-card">
+            <span class="material-symbols-outlined about-sidebar-icon" aria-hidden="true">mail</span>
+            <h3>Get in touch</h3>
+            <p>
+              Have a project you'd like to discuss, or a part of Dublin you think deserves
+              closer attention? I'd love to hear from you.
+            </p>
+          </div>
+          <div class="about-sidebar-card about-sidebar-card--tertiary">
+            <span class="material-symbols-outlined about-sidebar-icon" aria-hidden="true">rss_feed</span>
+            <h3>Subscribe</h3>
+            <p>Follow along with new posts via the RSS feed.</p>
+            <a href="/rss.xml" class="md-button md-button--tonal" style="margin-top: 12px;">
+              RSS Feed
+            </a>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
