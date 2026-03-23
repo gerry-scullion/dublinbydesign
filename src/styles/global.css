@@ -189,10 +189,10 @@ a:focus-visible {
 
 /* ===========================
    3. Typography
-   Source Sans 3 for body, Source Serif 4 for display headings
+   Inter for all typography
    =========================== */
 body {
-  font-family: 'Source Sans 3', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -202,9 +202,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Display headings use Source Serif 4 for visual contrast */
+/* Display headings */
 h1 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 36px;
   font-weight: 400;
   line-height: 44px;
@@ -213,7 +213,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 28px;
   font-weight: 400;
   line-height: 36px;
@@ -222,7 +222,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
@@ -230,7 +230,7 @@ h3 {
 }
 
 h4 {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 22px;
   font-weight: 500;
   line-height: 28px;
@@ -345,7 +345,7 @@ h4 {
 }
 
 .site-title {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 28px;
@@ -448,7 +448,7 @@ h4 {
 }
 
 .hero-eyebrow {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -462,7 +462,7 @@ h4 {
 }
 
 .hero--home h1 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
@@ -690,7 +690,7 @@ h4 {
 }
 
 .section-heading-label h2 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 /* ===========================
@@ -792,7 +792,7 @@ h4 {
 }
 
 .post-card-title {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 28px;
@@ -899,7 +899,7 @@ h4 {
 }
 
 .footer-cta h3 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 28px;
   font-weight: 500;
   line-height: 36px;
@@ -1006,7 +1006,7 @@ h4 {
 }
 
 .post-hero-header h1 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 36px;
   font-weight: 700;
   line-height: 44px;
@@ -1073,7 +1073,7 @@ h4 {
 }
 
 .about-sidebar-card h3 {
-  font-family: 'Source Serif 4', Georgia, serif;
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 28px;
