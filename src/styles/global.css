@@ -22,11 +22,11 @@
   --md-sys-color-secondary-container: #d9e3f8;
   --md-sys-color-on-secondary-container: #121c2b;
 
-  /* Tertiary (warm coral/amber for contrast) */
-  --md-sys-color-tertiary: #904d00;
+  /* Tertiary (cool slate) */
+  --md-sys-color-tertiary: #506278;
   --md-sys-color-on-tertiary: #ffffff;
-  --md-sys-color-tertiary-container: #ffdcc2;
-  --md-sys-color-on-tertiary-container: #2e1500;
+  --md-sys-color-tertiary-container: #2b3544;
+  --md-sys-color-on-tertiary-container: #d4dde9;
 
   /* Error */
   --md-sys-color-error: #ba1a1a;
@@ -113,10 +113,10 @@
     --md-sys-color-secondary-container: #3d4758;
     --md-sys-color-on-secondary-container: #d9e3f8;
 
-    --md-sys-color-tertiary: #ffb77c;
-    --md-sys-color-on-tertiary: #4e2600;
-    --md-sys-color-tertiary-container: #6f3800;
-    --md-sys-color-on-tertiary-container: #ffdcc2;
+    --md-sys-color-tertiary: #a8c2dc;
+    --md-sys-color-on-tertiary: #1a2a3a;
+    --md-sys-color-tertiary-container: #3a4a5c;
+    --md-sys-color-on-tertiary-container: #d4dde9;
 
     --md-sys-color-error: #ffb4ab;
     --md-sys-color-on-error: #690005;
