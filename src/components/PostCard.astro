@@ -1,0 +1,42 @@
+---
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
+---
+
+<article class="post-card">
+  <a href={`/blog/${slug}/`}>
+    {heroImage && (
+      <img
+        class="post-card-image"
+        src={heroImage}
+        alt=""
+        loading="lazy"
+        decoding="async"
+      />
+    )}
+    <div class="post-card-body">
+      <span class="post-card-date">
+        <FormattedDate date={pubDate} />
+      </span>
+      <h3 class="post-card-title">{title}</h3>
+      <p class="post-card-description">{description}</p>
+      {tags.length > 0 && (
+        <ul class="tag-list" aria-label="Tags">
+          {tags.map((tag) => (
+            <li class="tag">{tag}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </a>
+</article>
