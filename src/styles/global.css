@@ -422,10 +422,10 @@ h4 {
    8. Hero Sections
    =========================== */
 
-/* Homepage hero — bold, dark, impactful */
+/* Homepage hero — bold, dark, impactful (always dark regardless of theme) */
 .hero--home {
-  background: var(--md-sys-color-inverse-surface);
-  color: var(--md-sys-color-inverse-on-surface);
+  background: #1a1b21;
+  color: #e2e2e9;
   padding: var(--space-3xl) 0 var(--space-2xl);
   position: relative;
   overflow: hidden;
@@ -458,7 +458,7 @@ h4 {
 }
 
 .hero--home .hero-eyebrow {
-  color: var(--md-sys-color-inverse-primary);
+  color: #a4c8ff;
 }
 
 .hero--home h1 {
@@ -467,13 +467,13 @@ h4 {
   font-weight: 700;
   line-height: 56px;
   letter-spacing: -0.5px;
-  color: var(--md-sys-color-inverse-on-surface);
+  color: #e2e2e9;
   margin-bottom: var(--space-lg);
 }
 
 .hero--home h1 em {
   font-style: normal;
-  color: var(--md-sys-color-inverse-primary);
+  color: #a4c8ff;
 }
 
 .hero-subtitle {
@@ -484,7 +484,7 @@ h4 {
 }
 
 .hero--home .hero-subtitle {
-  color: var(--md-sys-color-inverse-on-surface);
+  color: #e2e2e9;
 }
 
 .hero-actions {
@@ -561,8 +561,8 @@ h4 {
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0.1px;
-  background: var(--md-sys-color-inverse-primary);
-  color: var(--md-sys-color-inverse-surface);
+  background: #a4c8ff;
+  color: #1a1b21;
   padding: 10px 24px 10px 16px;
   border-radius: var(--md-sys-shape-full);
   transition: box-shadow var(--md-sys-motion-short) var(--md-sys-motion-easing);
@@ -570,7 +570,7 @@ h4 {
 
 .md-button--filled-tonal:hover {
   box-shadow: var(--md-sys-elevation-1);
-  color: var(--md-sys-color-inverse-surface);
+  color: #1a1b21;
   text-decoration: none;
 }
 
@@ -588,7 +588,7 @@ h4 {
   line-height: 20px;
   letter-spacing: 0.1px;
   background: transparent;
-  color: var(--md-sys-color-inverse-on-surface);
+  color: #e2e2e9;
   padding: 10px 24px;
   border-radius: var(--md-sys-shape-full);
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -597,7 +597,7 @@ h4 {
 
 .md-button--outlined-inverse:hover {
   background: rgba(255, 255, 255, 0.08);
-  color: var(--md-sys-color-inverse-on-surface);
+  color: #e2e2e9;
   text-decoration: none;
 }
 
