@@ -1,4 +1,6 @@
 ---
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description: string;
@@ -35,6 +37,3 @@ const ogImageURL = new URL(image, Astro.site);
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
 
-<style>
-  @import '../styles/global.css';
-</style>
