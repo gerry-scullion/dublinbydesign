@@ -1,0 +1,53 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  heroImage?: string;
+  tags?: string[];
+}
+
+const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro.props;
+---
+
+<BaseLayout title={`${title} — Dublin by Design`} description={description} image={heroImage}>
+  <article>
+    <div class="container">
+      <header class="post-header">
+        <p class="post-meta">
+          <FormattedDate date={pubDate} />
+          {updatedDate && (
+            <span> · Updated <FormattedDate date={updatedDate} /></span>
+          )}
+        </p>
+        <h1>{title}</h1>
+        {tags.length > 0 && (
+          <ul class="tag-list" aria-label="Tags">
+            {tags.map((tag) => (
+              <li class="tag">{tag}</li>
+            ))}
+          </ul>
+        )}
+      </header>
+
+      {heroImage && (
+        <img
+          class="post-hero-image"
+          src={heroImage}
+          alt=""
+          width="1200"
+          height="630"
+          loading="eager"
+        />
+      )}
+
+      <div class="post-content prose">
+        <slot />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

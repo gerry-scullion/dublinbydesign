@@ -1,0 +1,18 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="container">
+    <a href="/" class="site-title">Dublin by Design</a>
+    <nav aria-label="Main navigation">
+      <ul class="site-nav">
+        <li><a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a></li>
+        <li><a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
+        <li><a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>About</a></li>
+        <li><a href="/rss.xml" aria-label="RSS Feed">RSS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
