@@ -15,7 +15,7 @@ const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
 
 <article class="post-card">
   <a href={`/blog/${slug}/`}>
-    {heroImage && (
+    {heroImage ? (
       <img
         class="post-card-image"
         src={heroImage}
@@ -23,6 +23,10 @@ const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
         loading="lazy"
         decoding="async"
       />
+    ) : (
+      <div class="post-card-image-placeholder">
+        <span class="material-symbols-outlined" aria-hidden="true">landscape</span>
+      </div>
     )}
     <div class="post-card-body">
       <span class="post-card-date">
@@ -37,6 +41,9 @@ const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
           ))}
         </ul>
       )}
+    </div>
+    <div class="post-card-action">
+      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
     </div>
   </a>
 </article>

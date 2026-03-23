@@ -4,7 +4,17 @@ const year = new Date().getFullYear();
 
 <footer class="site-footer">
   <div class="container">
-    <p>&copy; {year} Dublin by Design. All rights reserved.</p>
-    <p><a href="/rss.xml">RSS Feed</a></p>
+    <div class="footer-brand">
+      <span class="material-symbols-outlined footer-icon" aria-hidden="true">location_city</span>
+      <p>&copy; {year} Dublin by Design</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+      <a href="/rss.xml">
+        <span class="material-symbols-outlined" aria-hidden="true" style="font-size: 18px; vertical-align: middle;">rss_feed</span>
+        RSS Feed
+      </a>
+    </nav>
   </div>
 </footer>

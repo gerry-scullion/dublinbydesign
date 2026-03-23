@@ -12,13 +12,28 @@ const posts = (await getCollection('blog'))
   title="Dublin by Design — Projects, Ideas, and Urban Thinking"
   description="A blog exploring Dublin's architecture, urban design, and public spaces. Thoughtful writing about the projects shaping the city."
 >
-  <section class="hero">
+  <section class="hero hero--home">
     <div class="container">
-      <h1>Dublin by Design</h1>
-      <p>
-        Exploring the architecture, urban design, and public spaces that shape Dublin.
-        Thoughtful writing about the projects and ideas making the city better.
-      </p>
+      <div class="hero-content">
+        <span class="hero-label">
+          <span class="material-symbols-outlined" aria-hidden="true">architecture</span>
+          Urban Design Blog
+        </span>
+        <h1>Dublin<br/>by Design</h1>
+        <p>
+          Exploring the architecture, urban design, and public spaces that shape Dublin.
+          Thoughtful writing about the projects and ideas making the city better.
+        </p>
+        <div class="hero-actions">
+          <a href="/blog/" class="md-button md-button--filled">
+            <span class="material-symbols-outlined" aria-hidden="true">article</span>
+            Read the blog
+          </a>
+          <a href="/about/" class="md-button md-button--outlined">
+            Learn more
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -26,7 +41,10 @@ const posts = (await getCollection('blog'))
     <div class="container">
       <div class="section-heading">
         <h2>Recent Posts</h2>
-        <a href="/blog/">View all &rarr;</a>
+        <a href="/blog/" class="md-button md-button--text">
+          View all
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
       </div>
       <div class="post-grid">
         {posts.map((post) => (
