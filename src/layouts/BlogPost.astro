@@ -15,10 +15,15 @@ const { title, description, pubDate, updatedDate, heroImage, tags = [] } = Astro
 ---
 
 <BaseLayout title={`${title} — Dublin by Design`} description={description} image={heroImage}>
-  <article>
+  <article class="blog-post">
     <div class="container">
       <header class="post-header">
+        <a href="/blog/" class="post-back-link">
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+          Back to blog
+        </a>
         <p class="post-meta">
+          <span class="material-symbols-outlined post-meta-icon" aria-hidden="true">calendar_today</span>
           <FormattedDate date={pubDate} />
           {updatedDate && (
             <span> · Updated <FormattedDate date={updatedDate} /></span>

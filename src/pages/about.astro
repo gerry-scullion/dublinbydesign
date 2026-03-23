@@ -8,32 +8,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
   <section class="hero">
     <div class="container">
-      <h1>About</h1>
+      <span class="hero-label">
+        <span class="material-symbols-outlined" aria-hidden="true">info</span>
+        About
+      </span>
+      <h1>About this blog</h1>
+      <p>Architecture, urban design, and public spaces in Dublin.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="prose">
-        <p>
-          <strong>Dublin by Design</strong> is a blog about the architecture, urban design,
-          and public spaces that shape Dublin. It's a place to think out loud about the
-          projects, policies, and ideas that are making the city better — and the ones that
-          could.
-        </p>
+      <div class="about-card">
+        <div class="prose">
+          <p>
+            <strong>Dublin by Design</strong> is a blog about the architecture, urban design,
+            and public spaces that shape Dublin. It's a place to think out loud about the
+            projects, policies, and ideas that are making the city better — and the ones that
+            could.
+          </p>
 
-        <p>
-          The writing here covers everything from major infrastructure projects to small
-          details of street design. The goal is to look carefully at the built environment
-          and ask: what's working, what isn't, and what could we do differently?
-        </p>
+          <p>
+            The writing here covers everything from major infrastructure projects to small
+            details of street design. The goal is to look carefully at the built environment
+            and ask: what's working, what isn't, and what could we do differently?
+          </p>
 
-        <h2>Get in Touch</h2>
+          <div class="about-divider"></div>
 
-        <p>
-          Have a project you'd like to discuss, or a part of Dublin you think deserves
-          closer attention? Reach out — I'd love to hear from you.
-        </p>
+          <h2>
+            <span class="material-symbols-outlined section-icon" aria-hidden="true">mail</span>
+            Get in Touch
+          </h2>
+
+          <p>
+            Have a project you'd like to discuss, or a part of Dublin you think deserves
+            closer attention? Reach out — I'd love to hear from you.
+          </p>
+        </div>
       </div>
     </div>
   </section>

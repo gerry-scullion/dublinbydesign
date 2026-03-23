@@ -1,12 +1,13 @@
 /* ===========================
    Material Design 3 — Dublin by Design
+   m3.material.io
    =========================== */
 
 /* ===========================
    1. M3 Design Tokens
    =========================== */
 :root {
-  /* Primary (Dublin green) */
+  /* Primary (Dublin green — seed #386a20) */
   --md-sys-color-primary: #386a20;
   --md-sys-color-on-primary: #ffffff;
   --md-sys-color-primary-container: #b8f397;
@@ -33,6 +34,8 @@
   --md-sys-color-on-background: #1a1c18;
   --md-sys-color-surface: #fcfdf6;
   --md-sys-color-on-surface: #1a1c18;
+  --md-sys-color-surface-dim: #ddddd6;
+  --md-sys-color-surface-bright: #fcfdf6;
   --md-sys-color-surface-variant: #e0e4d6;
   --md-sys-color-on-surface-variant: #43483e;
   --md-sys-color-surface-container-lowest: #ffffff;
@@ -43,25 +46,34 @@
   --md-sys-color-inverse-surface: #2f312c;
   --md-sys-color-inverse-on-surface: #f1f1ea;
   --md-sys-color-inverse-primary: #9dd67d;
+  --md-sys-color-scrim: #000000;
 
   /* Outline */
   --md-sys-color-outline: #74796d;
   --md-sys-color-outline-variant: #c3c8bb;
 
-  /* M3 Elevation */
-  --md-sys-elevation-1: 0 1px 3px 1px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.3);
-  --md-sys-elevation-2: 0 2px 6px 2px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.3);
-  --md-sys-elevation-3: 0 4px 8px 3px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.3);
+  /* M3 Elevation (from spec) */
+  --md-sys-elevation-0: none;
+  --md-sys-elevation-1: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 1px 3px 1px rgba(0,0,0,0.15);
+  --md-sys-elevation-2: 0px 1px 2px 0px rgba(0,0,0,0.3), 0px 2px 6px 2px rgba(0,0,0,0.15);
+  --md-sys-elevation-3: 0px 1px 3px 0px rgba(0,0,0,0.3), 0px 4px 8px 3px rgba(0,0,0,0.15);
 
-  /* M3 Shape */
-  --md-sys-shape-corner-extra-small: 4px;
-  --md-sys-shape-corner-small: 8px;
-  --md-sys-shape-corner-medium: 12px;
-  --md-sys-shape-corner-large: 16px;
-  --md-sys-shape-corner-extra-large: 28px;
-  --md-sys-shape-corner-full: 9999px;
+  /* M3 Shape scale */
+  --md-sys-shape-none: 0px;
+  --md-sys-shape-extra-small: 4px;
+  --md-sys-shape-small: 8px;
+  --md-sys-shape-medium: 12px;
+  --md-sys-shape-large: 16px;
+  --md-sys-shape-extra-large: 28px;
+  --md-sys-shape-full: 9999px;
 
-  /* Spacing */
+  /* M3 State layer opacities */
+  --md-sys-state-hover: 0.08;
+  --md-sys-state-focus: 0.12;
+  --md-sys-state-pressed: 0.12;
+  --md-sys-state-dragged: 0.16;
+
+  /* Spacing (4dp grid) */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -69,19 +81,28 @@
   --space-xl: 32px;
   --space-2xl: 48px;
   --space-3xl: 64px;
+  --space-4xl: 96px;
 
   /* Layout */
   --max-width: 1200px;
   --max-prose: 720px;
 
-  /* Motion */
-  --md-sys-motion-duration-short: 200ms;
-  --md-sys-motion-duration-medium: 300ms;
+  /* M3 Motion */
+  --md-sys-motion-duration-short1: 100ms;
+  --md-sys-motion-duration-short2: 200ms;
+  --md-sys-motion-duration-medium1: 300ms;
+  --md-sys-motion-duration-medium2: 400ms;
+  --md-sys-motion-duration-long1: 500ms;
   --md-sys-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-standard-decelerate: cubic-bezier(0, 0, 0, 1);
   --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+  --md-sys-motion-easing-emphasized-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
 }
 
-/* Dark theme */
+/* ===========================
+   Dark theme
+   =========================== */
 @media (prefers-color-scheme: dark) {
   :root {
     --md-sys-color-primary: #9dd67d;
@@ -106,6 +127,8 @@
     --md-sys-color-on-background: #e3e3dc;
     --md-sys-color-surface: #1a1c18;
     --md-sys-color-on-surface: #e3e3dc;
+    --md-sys-color-surface-dim: #1a1c18;
+    --md-sys-color-surface-bright: #40423c;
     --md-sys-color-surface-variant: #43483e;
     --md-sys-color-on-surface-variant: #c3c8bb;
     --md-sys-color-surface-container-lowest: #0f110d;
@@ -116,6 +139,7 @@
     --md-sys-color-inverse-surface: #e3e3dc;
     --md-sys-color-inverse-on-surface: #1a1c18;
     --md-sys-color-inverse-primary: #386a20;
+    --md-sys-color-scrim: #000000;
 
     --md-sys-color-outline: #8d9286;
     --md-sys-color-outline-variant: #43483e;
@@ -139,22 +163,15 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-img,
-picture,
-video,
-svg {
+img, picture, video, svg {
   display: block;
   max-width: 100%;
   height: auto;
@@ -163,7 +180,7 @@ svg {
 a {
   color: var(--md-sys-color-primary);
   text-decoration: none;
-  transition: color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+  transition: color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
 }
 
 a:hover {
@@ -173,52 +190,68 @@ a:hover {
 a:focus-visible {
   outline: 2px solid var(--md-sys-color-primary);
   outline-offset: 2px;
-  border-radius: var(--md-sys-shape-corner-extra-small);
+  border-radius: var(--md-sys-shape-extra-small);
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
 }
 
 /* ===========================
-   3. Typography (M3 Type Scale)
+   3. M3 Typography
    =========================== */
 body {
-  font-family: 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  font-size: 1rem;
-  line-height: 1.5;
+  /* Body Large: 16/24 400 */
+  font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
   color: var(--md-sys-color-on-background);
   background-color: var(--md-sys-color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Display Small: 36/44 400 */
 h1 {
   font-family: 'Roboto', sans-serif;
-  font-size: 2.25rem;
+  font-size: 36px;
   font-weight: 400;
-  line-height: 2.75rem;
-  color: var(--md-sys-color-on-surface);
+  line-height: 44px;
   letter-spacing: 0;
+  color: var(--md-sys-color-on-surface);
 }
 
+/* Headline Large: 32/40 400 */
 h2 {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.75rem;
+  font-size: 32px;
   font-weight: 400;
-  line-height: 2.25rem;
+  line-height: 40px;
+  letter-spacing: 0;
   color: var(--md-sys-color-on-surface);
 }
 
+/* Headline Small: 24/32 400 */
 h3 {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 2rem;
+  line-height: 32px;
+  letter-spacing: 0;
   color: var(--md-sys-color-on-surface);
 }
 
+/* Title Large: 22/28 400 */
 h4 {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.375rem;
-  font-weight: 500;
-  line-height: 1.75rem;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
   color: var(--md-sys-color-on-surface);
 }
 
@@ -232,6 +265,9 @@ h4 {
   padding-inline: var(--space-md);
 }
 
+/* ===========================
+   5. Prose (article content)
+   =========================== */
 .prose {
   max-width: var(--max-prose);
 }
@@ -240,16 +276,10 @@ h4 {
   margin-top: var(--space-lg);
 }
 
-.prose h2 {
-  margin-top: var(--space-2xl);
-}
+.prose h2 { margin-top: var(--space-2xl); }
+.prose h3 { margin-top: var(--space-xl); }
 
-.prose h3 {
-  margin-top: var(--space-xl);
-}
-
-.prose ul,
-.prose ol {
+.prose ul, .prose ol {
   padding-left: var(--space-xl);
 }
 
@@ -263,21 +293,21 @@ h4 {
   color: var(--md-sys-color-on-surface-variant);
   font-style: italic;
   background: var(--md-sys-color-surface-container-low);
-  border-radius: 0 var(--md-sys-shape-corner-small) var(--md-sys-shape-corner-small) 0;
+  border-radius: 0 var(--md-sys-shape-medium) var(--md-sys-shape-medium) 0;
 }
 
 .prose code {
   font-family: 'Roboto Mono', monospace;
-  font-size: 0.875em;
+  font-size: 14px;
   background: var(--md-sys-color-surface-container-highest);
   padding: 2px 6px;
-  border-radius: var(--md-sys-shape-corner-extra-small);
+  border-radius: var(--md-sys-shape-extra-small);
 }
 
 .prose pre {
   background: var(--md-sys-color-surface-container-highest);
   padding: var(--space-lg);
-  border-radius: var(--md-sys-shape-corner-medium);
+  border-radius: var(--md-sys-shape-medium);
   overflow-x: auto;
 }
 
@@ -287,9 +317,8 @@ h4 {
 }
 
 .prose img {
-  border-radius: var(--md-sys-shape-corner-large);
-  margin-top: var(--space-lg);
-  margin-bottom: var(--space-lg);
+  border-radius: var(--md-sys-shape-large);
+  margin-block: var(--space-lg);
 }
 
 .prose a {
@@ -298,19 +327,17 @@ h4 {
 }
 
 /* ===========================
-   5. Components
+   6. Skip link
    =========================== */
-
-/* Skip link */
 .skip-link {
   position: absolute;
   top: -100%;
   left: var(--space-md);
   background: var(--md-sys-color-primary);
   color: var(--md-sys-color-on-primary);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--md-sys-shape-corner-full);
-  font-size: 0.875rem;
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-full);
+  font-size: 14px;
   font-weight: 500;
   z-index: 100;
 }
@@ -320,15 +347,18 @@ h4 {
   color: var(--md-sys-color-on-primary);
 }
 
-/* M3 Top App Bar */
+/* ===========================
+   7. M3 Top App Bar
+   =========================== */
 .site-header {
   background: var(--md-sys-color-surface);
-  padding: var(--space-sm) 0;
+  padding: 0;
   position: sticky;
   top: 0;
   z-index: 50;
-  transition: box-shadow var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-              background var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+  transition:
+    box-shadow var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard),
+    background-color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
 }
 
 .site-header .container {
@@ -336,60 +366,76 @@ h4 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   min-height: 64px;
 }
 
-.site-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.375rem;
-  font-weight: 500;
-  line-height: 1.75rem;
-  color: var(--md-sys-color-on-surface);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-}
-
-.site-title svg {
-  flex-shrink: 0;
-}
-
-/* Scrolled state */
 .site-header.scrolled {
   background: var(--md-sys-color-surface-container);
   box-shadow: var(--md-sys-elevation-2);
 }
 
+/* Title Large: 22/28 */
+.site-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: var(--md-sys-color-on-surface);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm);
+  margin: calc(-1 * var(--space-sm));
+  border-radius: var(--md-sys-shape-medium);
+  transition: background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
 .site-title:hover {
-  color: var(--md-sys-color-primary);
+  background: rgba(26, 28, 24, var(--md-sys-state-hover));
+  color: var(--md-sys-color-on-surface);
   text-decoration: none;
 }
 
-/* M3 Navigation pills */
+.site-title-icon {
+  color: var(--md-sys-color-primary);
+  font-size: 28px;
+}
+
+/* M3 Navigation tabs */
 .site-nav {
   display: flex;
-  gap: var(--space-xs);
+  gap: 0;
   list-style: none;
 }
 
 .site-nav a {
-  font-size: 0.875rem;
+  /* Label Large: 14/20 500 */
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.25rem;
-  letter-spacing: 0.01em;
+  line-height: 20px;
+  letter-spacing: 0.1px;
   color: var(--md-sys-color-on-surface-variant);
   text-decoration: none;
   padding: 10px 16px;
-  border-radius: var(--md-sys-shape-corner-full);
+  border-radius: var(--md-sys-shape-full);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
   transition:
-    background var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard),
-    color var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+    background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard),
+    color var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.site-nav .nav-icon {
+  font-size: 20px;
 }
 
 .site-nav a:hover {
-  background: var(--md-sys-color-surface-container-highest);
+  background: rgba(26, 28, 24, var(--md-sys-state-hover));
   color: var(--md-sys-color-on-surface);
   text-decoration: none;
 }
@@ -397,157 +443,199 @@ h4 {
 .site-nav a[aria-current='page'] {
   background: var(--md-sys-color-secondary-container);
   color: var(--md-sys-color-on-secondary-container);
-  font-weight: 600;
 }
 
-/* M3 Footer */
-.site-footer {
-  background: var(--md-sys-color-surface-container-low);
-  padding: var(--space-2xl) 0;
-  margin-top: var(--space-3xl);
-  color: var(--md-sys-color-on-surface-variant);
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+.site-nav a[aria-current='page'] .nav-icon {
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-.site-footer .container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-md);
+@media (prefers-color-scheme: dark) {
+  .site-title:hover {
+    background: rgba(227, 227, 220, var(--md-sys-state-hover));
+  }
+  .site-nav a:hover {
+    background: rgba(227, 227, 220, var(--md-sys-state-hover));
+  }
 }
 
-.site-footer a {
-  color: var(--md-sys-color-on-surface-variant);
-}
-
-.site-footer a:hover {
-  color: var(--md-sys-color-primary);
-}
-
-/* M3 Filled Card */
-.post-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-lg);
-}
-
-.post-card {
-  background: var(--md-sys-color-surface-container-low);
-  border-radius: var(--md-sys-shape-corner-medium);
-  overflow: hidden;
-  transition:
-    box-shadow var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized),
-    transform var(--md-sys-motion-duration-medium) var(--md-sys-motion-easing-emphasized);
-  position: relative;
-}
-
-.post-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  transition: background var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
-}
-
-.post-card:hover {
-  box-shadow: var(--md-sys-elevation-1);
-  transform: translateY(-2px);
-}
-
-.post-card:hover::after {
-  background: rgba(26, 28, 24, 0.05);
-}
-
-.post-card a {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.post-card a:hover {
-  text-decoration: none;
-}
-
-.post-card-image {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  width: 100%;
-}
-
-.post-card-body {
-  padding: var(--space-md);
-}
-
-.post-card-date {
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
-  letter-spacing: 0.04em;
-  color: var(--md-sys-color-on-surface-variant);
-  display: block;
-  margin-bottom: var(--space-sm);
-  text-transform: uppercase;
-}
-
-.post-card-title {
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.375rem;
-  font-weight: 500;
-  line-height: 1.75rem;
-  color: var(--md-sys-color-on-surface);
-  margin-bottom: var(--space-sm);
-}
-
-.post-card-description {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: var(--md-sys-color-on-surface-variant);
-}
-
-/* M3 Chips — Tags */
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-  list-style: none;
-  margin-top: var(--space-md);
-}
-
-.tag {
-  font-size: 0.75rem;
-  font-weight: 500;
-  line-height: 1rem;
-  letter-spacing: 0.02em;
-  color: var(--md-sys-color-on-secondary-container);
-  background: var(--md-sys-color-secondary-container);
-  padding: 6px 12px;
-  border-radius: var(--md-sys-shape-corner-small);
-}
-
-/* Hero */
+/* ===========================
+   8. M3 Hero
+   =========================== */
 .hero {
-  padding: var(--space-3xl) 0 var(--space-xl);
-  background: var(--md-sys-color-surface);
+  padding: var(--space-2xl) 0 var(--space-xl);
+  background: var(--md-sys-color-surface-container-lowest);
+  border-bottom: 1px solid var(--md-sys-color-surface-variant);
+}
+
+.hero--home {
+  padding: var(--space-3xl) 0 var(--space-2xl);
+  background: var(--md-sys-color-primary-container);
+  border-bottom: none;
+}
+
+.hero--home h1 {
+  /* Display Medium: 45/52 */
+  font-size: 45px;
+  line-height: 52px;
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.hero--home p {
+  color: var(--md-sys-color-on-primary-container);
+  opacity: 0.85;
+}
+
+.hero--home .hero-label {
+  color: var(--md-sys-color-on-primary-container);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hero-content {
+  max-width: var(--max-prose);
+}
+
+.hero-label {
+  /* Label Large */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: var(--md-sys-color-primary);
+  background: var(--md-sys-color-surface-container);
+  padding: 6px 16px 6px 12px;
+  border-radius: var(--md-sys-shape-full);
+  margin-bottom: var(--space-md);
+}
+
+.hero-label .material-symbols-outlined {
+  font-size: 18px;
 }
 
 .hero h1 {
   margin-bottom: var(--space-md);
-  font-size: 2.25rem;
-  font-weight: 400;
-  line-height: 2.75rem;
 }
 
 .hero p {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  /* Body Large: 16/24 */
+  font-size: 16px;
+  line-height: 24px;
   color: var(--md-sys-color-on-surface-variant);
   max-width: var(--max-prose);
 }
 
-/* Section */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+/* ===========================
+   9. M3 Buttons
+   =========================== */
+
+/* Filled button */
+.md-button--filled {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  /* Label Large */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-full);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    box-shadow var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.md-button--filled:hover {
+  box-shadow: var(--md-sys-elevation-1);
+  color: var(--md-sys-color-on-primary);
+  text-decoration: none;
+}
+
+.md-button--filled .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Outlined button */
+.md-button--outlined {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  background: transparent;
+  color: var(--md-sys-color-primary);
+  padding: 10px 24px;
+  border-radius: var(--md-sys-shape-full);
+  border: 1px solid var(--md-sys-color-outline);
+  text-decoration: none;
+  transition:
+    background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.md-button--outlined:hover {
+  background: rgba(56, 106, 32, var(--md-sys-state-hover));
+  text-decoration: none;
+}
+
+/* Text button */
+.md-button--text {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: var(--md-sys-color-primary);
+  padding: 10px 16px;
+  border-radius: var(--md-sys-shape-full);
+  text-decoration: none;
+  transition:
+    background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.md-button--text:hover {
+  background: rgba(56, 106, 32, var(--md-sys-state-hover));
+  text-decoration: none;
+}
+
+.md-button--text .material-symbols-outlined {
+  font-size: 18px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .md-button--outlined:hover {
+    background: rgba(157, 214, 125, var(--md-sys-state-hover));
+  }
+  .md-button--text:hover {
+    background: rgba(157, 214, 125, var(--md-sys-state-hover));
+  }
+  .hero--home {
+    background: var(--md-sys-color-primary-container);
+  }
+  .hero--home .hero-label {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ===========================
+   10. Section
+   =========================== */
 .section {
   padding: var(--space-2xl) 0;
 }
@@ -561,49 +649,302 @@ h4 {
 }
 
 .section-heading h2 {
-  font-size: 1.75rem;
-  font-weight: 400;
-  line-height: 2.25rem;
+  /* Headline Medium: 28/36 */
+  font-size: 28px;
+  line-height: 36px;
 }
 
-/* M3 Text Button */
-.section-heading a {
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.01em;
+.section-icon {
   color: var(--md-sys-color-primary);
-  padding: 10px 12px;
-  border-radius: var(--md-sys-shape-corner-full);
-  transition: background var(--md-sys-motion-duration-short) var(--md-sys-motion-easing-standard);
+  margin-right: var(--space-sm);
+  vertical-align: -4px;
 }
 
-.section-heading a:hover {
-  background: var(--md-sys-color-primary-container);
+/* ===========================
+   11. M3 Elevated Card
+   =========================== */
+.post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.post-card {
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-medium);
+  overflow: hidden;
+  position: relative;
+  box-shadow: var(--md-sys-elevation-1);
+  transition:
+    box-shadow var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-emphasized),
+    transform var(--md-sys-motion-duration-medium1) var(--md-sys-motion-easing-emphasized);
+}
+
+/* M3 state layer */
+.post-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 1;
+  background: var(--md-sys-color-on-surface);
+  opacity: 0;
+  transition: opacity var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.post-card:hover {
+  box-shadow: var(--md-sys-elevation-2);
+  transform: translateY(-2px);
+}
+
+.post-card:hover::before {
+  opacity: var(--md-sys-state-hover);
+}
+
+.post-card:active::before {
+  opacity: var(--md-sys-state-pressed);
+}
+
+.post-card a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.post-card a:hover {
   text-decoration: none;
 }
 
-/* Blog post page */
+.post-card a:focus-visible {
+  outline: none;
+}
+
+.post-card:has(a:focus-visible) {
+  outline: 2px solid var(--md-sys-color-primary);
+  outline-offset: 2px;
+}
+
+.post-card:has(a:focus-visible)::before {
+  opacity: var(--md-sys-state-focus);
+}
+
+.post-card-image {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  width: 100%;
+}
+
+.post-card-image-placeholder {
+  aspect-ratio: 16 / 9;
+  background: var(--md-sys-color-surface-container);
+  display: grid;
+  place-items: center;
+}
+
+.post-card-image-placeholder .material-symbols-outlined {
+  font-size: 48px;
+  color: var(--md-sys-color-outline);
+}
+
+.post-card-body {
+  padding: var(--space-md);
+  flex: 1;
+}
+
+.post-card-date {
+  /* Label Medium: 12/16 500 */
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: var(--md-sys-color-on-surface-variant);
+  display: block;
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+}
+
+.post-card-title {
+  /* Title Large: 22/28 400 */
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: var(--md-sys-color-on-surface);
+  margin-bottom: var(--space-sm);
+}
+
+.post-card-description {
+  /* Body Medium: 14/20 400 */
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.post-card-action {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 var(--space-md) var(--space-md);
+}
+
+.post-card-action .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--md-sys-color-primary);
+}
+
+/* ===========================
+   12. M3 Assist Chips (Tags)
+   =========================== */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  margin-top: var(--space-md);
+}
+
+.tag {
+  /* Label Small: 11/16 500 */
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  color: var(--md-sys-color-on-surface-variant);
+  background: transparent;
+  padding: 4px 12px;
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: var(--md-sys-shape-small);
+}
+
+/* ===========================
+   13. M3 Footer
+   =========================== */
+.site-footer {
+  background: var(--md-sys-color-surface-container);
+  padding: var(--space-2xl) 0;
+  margin-top: var(--space-3xl);
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--md-sys-color-on-surface-variant);
+  /* Body Medium */
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.footer-icon {
+  color: var(--md-sys-color-primary);
+  font-size: 24px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  /* Label Large */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+}
+
+.footer-links a {
+  color: var(--md-sys-color-on-surface-variant);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.footer-links a:hover {
+  color: var(--md-sys-color-primary);
+}
+
+/* ===========================
+   14. Blog Post Page
+   =========================== */
+.blog-post {
+  padding-bottom: var(--space-2xl);
+}
+
+.post-back-link {
+  /* Label Large */
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  color: var(--md-sys-color-primary);
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-sm);
+  border-radius: var(--md-sys-shape-full);
+  margin-bottom: var(--space-lg);
+  transition: background var(--md-sys-motion-duration-short2) var(--md-sys-motion-easing-standard);
+}
+
+.post-back-link:hover {
+  background: rgba(56, 106, 32, var(--md-sys-state-hover));
+  text-decoration: none;
+}
+
+.post-back-link .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .post-back-link:hover {
+    background: rgba(157, 214, 125, var(--md-sys-state-hover));
+  }
+}
+
 .post-header {
-  padding: var(--space-2xl) 0 var(--space-lg);
+  padding: var(--space-lg) 0 var(--space-lg);
 }
 
 .post-header h1 {
-  font-size: 2.25rem;
+  /* Display Small: 36/44 */
+  font-size: 36px;
   font-weight: 400;
-  line-height: 2.75rem;
+  line-height: 44px;
   margin-bottom: var(--space-md);
 }
 
 .post-meta {
   color: var(--md-sys-color-on-surface-variant);
-  font-size: 0.875rem;
+  /* Label Large */
+  font-size: 14px;
   font-weight: 500;
-  line-height: 1.25rem;
-  letter-spacing: 0.01em;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.post-meta-icon {
+  font-size: 18px;
+  color: var(--md-sys-color-outline);
 }
 
 .post-hero-image {
-  border-radius: var(--md-sys-shape-corner-extra-large);
+  border-radius: var(--md-sys-shape-extra-large);
   margin-bottom: var(--space-xl);
 }
 
@@ -612,7 +953,23 @@ h4 {
 }
 
 /* ===========================
-   6. Utilities
+   15. About page
+   =========================== */
+.about-card {
+  background: var(--md-sys-color-surface-container-low);
+  border-radius: var(--md-sys-shape-large);
+  padding: var(--space-xl);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.about-divider {
+  height: 1px;
+  background: var(--md-sys-color-outline-variant);
+  margin: var(--space-2xl) 0;
+}
+
+/* ===========================
+   16. Utilities
    =========================== */
 .sr-only {
   position: absolute;
@@ -627,22 +984,32 @@ h4 {
 }
 
 /* ===========================
-   7. Media Queries (M3 breakpoints)
+   17. Media Queries (M3 breakpoints: 600, 905, 1240)
    =========================== */
 @media (min-width: 600px) {
   .post-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
   }
 
+  /* Display Medium: 45/52 on tablet+ */
   h1,
-  .hero h1,
   .post-header h1 {
-    font-size: 2.8125rem;
-    line-height: 3.25rem;
+    font-size: 45px;
+    line-height: 52px;
+  }
+
+  .hero--home h1 {
+    font-size: 57px;
+    line-height: 64px;
   }
 
   .container {
     padding-inline: var(--space-lg);
+  }
+
+  .about-card {
+    padding: var(--space-2xl);
   }
 }
 
@@ -656,11 +1023,19 @@ h4 {
   }
 
   .hero {
-    padding: var(--space-3xl) 0 var(--space-2xl);
+    padding: var(--space-2xl) 0 var(--space-2xl);
+  }
+
+  .hero--home {
+    padding: var(--space-4xl) 0 var(--space-3xl);
   }
 
   .hero p {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .site-nav a span:not(.nav-icon) {
+    /* Show labels on desktop */
   }
 }

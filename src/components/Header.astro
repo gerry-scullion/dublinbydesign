@@ -6,19 +6,35 @@ const currentPath = Astro.url.pathname;
 <header class="site-header" id="site-header">
   <div class="container">
     <a href="/" class="site-title">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="var(--md-sys-color-primary)" opacity="0.15"/>
-        <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="var(--md-sys-color-primary)" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
-        <path d="M12 6v6M9 15h6M8 10l4-2 4 2" stroke="var(--md-sys-color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <span class="material-symbols-outlined site-title-icon" aria-hidden="true">location_city</span>
       Dublin by Design
     </a>
     <nav aria-label="Main navigation">
       <ul class="site-nav">
-        <li><a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>Home</a></li>
-        <li><a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>Blog</a></li>
-        <li><a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>About</a></li>
-        <li><a href="/rss.xml" aria-label="RSS Feed">RSS</a></li>
+        <li>
+          <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">home</span>
+            <span>Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">article</span>
+            <span>Blog</span>
+          </a>
+        </li>
+        <li>
+          <a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">info</span>
+            <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a href="/rss.xml" aria-label="RSS Feed">
+            <span class="material-symbols-outlined nav-icon" aria-hidden="true">rss_feed</span>
+            <span>RSS</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -27,8 +43,15 @@ const currentPath = Astro.url.pathname;
 <script>
   const header = document.getElementById('site-header');
   if (header) {
+    let ticking = false;
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 0);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          header.classList.toggle('scrolled', window.scrollY > 0);
+          ticking = false;
+        });
+        ticking = true;
+      }
     }, { passive: true });
   }
 </script>
