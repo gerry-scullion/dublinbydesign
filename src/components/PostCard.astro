@@ -8,30 +8,33 @@ interface Props {
   slug: string;
   heroImage?: string;
   tags?: string[];
+  featured?: boolean;
 }
 
-const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
+const { title, description, pubDate, slug, heroImage, tags = [], featured = false } = Astro.props;
 ---
 
-<article class="post-card">
+<article class:list={['post-card', { 'post-card--featured': featured }]}>
   <a href={`/blog/${slug}/`}>
     {heroImage ? (
-      <img
-        class="post-card-image"
-        src={heroImage}
-        alt=""
-        loading="lazy"
-        decoding="async"
-      />
+      <div class="post-card-media">
+        <img
+          class="post-card-image"
+          src={heroImage}
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
     ) : (
-      <div class="post-card-image-placeholder">
+      <div class="post-card-media post-card-media--empty">
         <span class="material-symbols-outlined" aria-hidden="true">landscape</span>
       </div>
     )}
     <div class="post-card-body">
-      <span class="post-card-date">
+      <div class="post-card-overline">
         <FormattedDate date={pubDate} />
-      </span>
+      </div>
       <h3 class="post-card-title">{title}</h3>
       <p class="post-card-description">{description}</p>
       {tags.length > 0 && (
@@ -41,9 +44,6 @@ const { title, description, pubDate, slug, heroImage, tags = [] } = Astro.props;
           ))}
         </ul>
       )}
-    </div>
-    <div class="post-card-action">
-      <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
     </div>
   </a>
 </article>

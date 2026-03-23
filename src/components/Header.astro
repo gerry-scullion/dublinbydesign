@@ -7,32 +7,26 @@ const currentPath = Astro.url.pathname;
   <div class="container">
     <a href="/" class="site-title">
       <span class="material-symbols-outlined site-title-icon" aria-hidden="true">location_city</span>
-      Dublin by Design
+      <span class="site-title-text">Dublin by Design</span>
     </a>
     <nav aria-label="Main navigation">
       <ul class="site-nav">
         <li>
           <a href="/" aria-current={currentPath === '/' ? 'page' : undefined}>
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">home</span>
-            <span>Home</span>
+            <span class="nav-label">Home</span>
           </a>
         </li>
         <li>
           <a href="/blog/" aria-current={currentPath.startsWith('/blog') ? 'page' : undefined}>
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">article</span>
-            <span>Blog</span>
+            <span class="nav-label">Blog</span>
           </a>
         </li>
         <li>
           <a href="/about/" aria-current={currentPath === '/about/' ? 'page' : undefined}>
             <span class="material-symbols-outlined nav-icon" aria-hidden="true">info</span>
-            <span>About</span>
-          </a>
-        </li>
-        <li>
-          <a href="/rss.xml" aria-label="RSS Feed">
-            <span class="material-symbols-outlined nav-icon" aria-hidden="true">rss_feed</span>
-            <span>RSS</span>
+            <span class="nav-label">About</span>
           </a>
         </li>
       </ul>

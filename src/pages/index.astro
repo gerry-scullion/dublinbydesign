@@ -6,6 +6,8 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 6);
+
+const [featuredPost, ...remainingPosts] = posts;
 ---
 
 <BaseLayout
@@ -15,39 +17,59 @@ const posts = (await getCollection('blog'))
   <section class="hero hero--home">
     <div class="container">
       <div class="hero-content">
-        <span class="hero-label">
-          <span class="material-symbols-outlined" aria-hidden="true">architecture</span>
-          Urban Design Blog
-        </span>
-        <h1>Dublin<br/>by Design</h1>
-        <p>
-          Exploring the architecture, urban design, and public spaces that shape Dublin.
-          Thoughtful writing about the projects and ideas making the city better.
+        <p class="hero-eyebrow">Architecture & Urban Design</p>
+        <h1>Dublin<br/><em>by Design</em></h1>
+        <p class="hero-subtitle">
+          Exploring the projects, policies, and public spaces shaping Dublin's future.
         </p>
         <div class="hero-actions">
-          <a href="/blog/" class="md-button md-button--filled">
+          <a href="/blog/" class="md-button md-button--filled-tonal">
             <span class="material-symbols-outlined" aria-hidden="true">article</span>
             Read the blog
           </a>
-          <a href="/about/" class="md-button md-button--outlined">
-            Learn more
+          <a href="/about/" class="md-button md-button--outlined-inverse">
+            About this project
           </a>
         </div>
       </div>
     </div>
   </section>
 
+  {featuredPost && (
+    <section class="section section--featured">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-heading-label">
+            <span class="material-symbols-outlined" aria-hidden="true">star</span>
+            <h2>Featured</h2>
+          </div>
+        </div>
+        <PostCard
+          title={featuredPost.data.title}
+          description={featuredPost.data.description}
+          pubDate={featuredPost.data.pubDate}
+          slug={featuredPost.id}
+          heroImage={featuredPost.data.heroImage}
+          tags={featuredPost.data.tags}
+          featured={true}
+        />
+      </div>
+    </section>
+  )}
+
   <section class="section">
     <div class="container">
       <div class="section-heading">
-        <h2>Recent Posts</h2>
+        <div class="section-heading-label">
+          <h2>Recent Posts</h2>
+        </div>
         <a href="/blog/" class="md-button md-button--text">
           View all
           <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
         </a>
       </div>
       <div class="post-grid">
-        {posts.map((post) => (
+        {remainingPosts.map((post) => (
           <PostCard
             title={post.data.title}
             description={post.data.description}
